@@ -1,0 +1,173 @@
+
+
+
+
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- =========================================================
+     inventario.xml  –  Mercadillo Sostenible · Instituto Aljada
+     Cada <objeto> representa un artículo del mercadillo de
+     intercambio o un producto ecológico de BioLemon.
+     ========================================================= -->
+<inventario evento="Mercadillo Sostenible" fecha="2026-03-26" lugar="Instituto Aljada">
+
+  <!-- ── PRODUCTOS ECOLÓGICOS BioLemon ─────────────────────── -->
+  <objeto>
+    <id>BL-001</id>
+    <nombre>Camisetas</nombre>
+    <categoria>Prenda de ropa</categoria>
+    <subcategoria>Ropa</subcategoria>
+    <descripcion>Caja de limones de cultivo ecológico, naturalmente murcianos. Aprox. 3 kg.</descripcion>
+    <precio>10</precio>
+    <moneda>EUR</moneda>
+    <estado>Nuevo</estado>
+    <propietario>Primark</propietario>
+    <imagen>camiseta.jpg</imagen>
+  </objeto>
+
+  <objeto>
+    <id>BL-002</id>
+    <nombre>Plantas Aromáticas</nombre>
+    <categoria>Producto Ecológico</categoria>
+    <subcategoria>Plantas</subcategoria>
+    <descripcion>Maceta con planta aromática (romero, tomillo o lavanda). Ideal para cocina o jardín.</descripcion>
+    <precio>2.00</precio>
+    <moneda>EUR</moneda>
+    <estado>Nuevo</estado>
+    <propietario>BioLemon – Naturalmente Murciano</propietario>
+    <imagen>plantas.jpg</imagen>
+  </objeto>
+
+  <objeto>
+    <id>BL-003</id>
+    <nombre>Almendras Ecológicas</nombre>
+    <categoria>Producto Ecológico</categoria>
+    <subcategoria>Frutos Secos</subcategoria>
+    <descripcion>Bolsa de 500 g de almendras crudas de producción local y ecológica.</descripcion>
+    <precio>2.50</precio>
+    <moneda>EUR</moneda>
+    <estado>Nuevo</estado>
+    <propietario>BioLemon – Naturalmente Murciano</propietario>
+    <imagen>almendras.jpg</imagen>
+  </objeto>
+
+  <objeto>
+    <id>BL-004</id>
+    <nombre>Pimentón de la Vera</nombre>
+    <categoria>Producto Ecológico</categoria>
+    <subcategoria>Especias</subcategoria>
+    <descripcion>Lata de 75 g de pimentón dulce ahumado, origen Murcia, certificado ecológico.</descripcion>
+    <precio>3.50</precio>
+    <moneda>EUR</moneda>
+    <estado>Nuevo</estado>
+    <propietario>BioLemon – Naturalmente Murciano</propietario>
+    <imagen>pimenton.jpg</imagen>
+  </objeto>
+
+  <objeto>
+    <id>BL-005</id>
+    <nombre>Mermelada Artesanal de Limón</nombre>
+    <categoria>Producto Ecológico</categoria>
+    <subcategoria>Conservas</subcategoria>
+    <descripcion>Tarro 250 g de mermelada artesanal de limón murciano sin conservantes.</descripcion>
+    <precio>3.00</precio>
+    <moneda>EUR</moneda>
+    <estado>Nuevo</estado>
+    <propietario>BioLemon – Naturalmente Murciano</propietario>
+    <imagen>mermelada.jpg</imagen>
+  </objeto>
+
+  <objeto>
+    <id>BL-006</id>
+    <nombre>Miel de Azahar</nombre>
+    <categoria>Producto Ecológico</categoria>
+    <subcategoria>Miel</subcategoria>
+    <descripcion>Tarro de 500 g de miel pura de azahar, recolectada por apicultores locales.</descripcion>
+    <precio>8.00</precio>
+    <moneda>EUR</moneda>
+    <estado>Nuevo</estado>
+    <propietario>BioLemon – Naturalmente Murciano</propietario>
+    <imagen>miel.jpg</imagen>
+  </objeto>
+
+  <!-- ── PUESTOS DE INTERCAMBIO ─────────────────────────────── -->
+  <objeto>
+    <id>IC-001</id>
+    <nombre>Novela Gráfica «Saga»</nombre>
+    <categoria>Intercambio</categoria>
+    <subcategoria>Libros</subcategoria>
+    <descripcion>Cómic de ciencia ficción, tapa blanda, muy buen estado. Cambio por libro de fantasía o cómic.</descripcion>
+    <precio>0</precio>
+    <moneda>EUR</moneda>
+    <estado>Muy buen estado</estado>
+    <propietario>Alumno – 2.º DAM</propietario>
+    <imagen>libro_saga.jpg</imagen>
+  </objeto>
+
+  <objeto>
+    <id>IC-002</id>
+    <nombre>Sudadera Unisex Talla M</nombre>
+    <categoria>Intercambio</categoria>
+    <subcategoria>Ropa</subcategoria>
+    <descripcion>Sudadera gris lisa, talla M, lavada y sin manchas. Cambio por prenda similar.</descripcion>
+    <precio>0</precio>
+    <moneda>EUR</moneda>
+    <estado>Buen estado</estado>
+    <propietario>Alumno – 1.º ASIR</propietario>
+    <imagen>sudadera.jpg</imagen>
+  </objeto>
+
+  <objeto>
+    <id>IC-003</id>
+    <nombre>Juego de Mesa «Catan»</nombre>
+    <categoria>Intercambio</categoria>
+    <subcategoria>Juegos</subcategoria>
+    <descripcion>Juego de mesa completo con todas las piezas. Cambio por otro juego de mesa o libros.</descripcion>
+    <precio>0</precio>
+    <moneda>EUR</moneda>
+    <estado>Buen estado</estado>
+    <propietario>Alumno – 2.º SMR</propietario>
+    <imagen>catan.jpg</imagen>
+  </objeto>
+
+  <objeto>
+    <id>IC-004</id>
+    <nombre>Auriculares Inalámbricos</nombre>
+    <categoria>Intercambio</categoria>
+    <subcategoria>Tecnología</subcategoria>
+    <descripcion>Auriculares Bluetooth con funda, funcionan perfectamente. Cambio por accesorio tech o libro técnico.</descripcion>
+    <precio>0</precio>
+    <moneda>EUR</moneda>
+    <estado>Buen estado</estado>
+    <propietario>Alumno – 1.º DAM</propietario>
+    <imagen>auriculares.jpg</imagen>
+  </objeto>
+
+  <objeto>
+    <id>IC-005</id>
+    <nombre>Pack Libros de Programación</nombre>
+    <categoria>Intercambio</categoria>
+    <subcategoria>Libros</subcategoria>
+    <descripcion>3 libros: Python Crash Course, Clean Code y JavaScript avanzado. Cambio por libros técnicos.</descripcion>
+    <precio>0</precio>
+    <moneda>EUR</moneda>
+    <estado>Buen estado</estado>
+    <propietario>Alumno – 2.º DAM</propietario>
+    <imagen>libros_prog.jpg</imagen>
+  </objeto>
+
+  <objeto>
+    <id>IC-006</id>
+    <nombre>Decoración Macramé</nombre>
+    <categoria>Intercambio</categoria>
+    <subcategoria>Decoración</subcategoria>
+    <descripcion>Colgante de macramé hecho a mano, perfecto estado. Cambio por plantas o material de manualidades.</descripcion>
+    <precio>0</precio>
+    <moneda>EUR</moneda>
+    <estado>Como nuevo</estado>
+    <propietario>Alumno – 1.º SMR</propietario>
+    <imagen>macrame.jpg</imagen>
+  </objeto>
+
+</inventario>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ficha de Producto · Plantilla</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@300;400;600&display=swap"/>
+  <style>
+    /* ─── RESET Y VARIABLES ────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --verde:    #2d6a4f;
+      --verde-cl: #d8f3dc;
+      --dorado:   #c8963e;
+      --crema:    #fefae0;
+      --gris:     #3d3d3d;
+      --r:        16px;
+    }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--crema);
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      padding: 2rem 1rem;
+      color: var(--gris);
+    }
+
+    /* ─── TARJETA ───────────────────────────────────── */
+    /*
+      Esta es la PLANTILLA que el equipo de Lógica (XSLT) tomará
+      como base. Los textos estáticos serán sustituidos por
+      expresiones XPath del tipo:
+        <xsl:value-of select="nombre"/>
+        <xsl:value-of select="descripcion"/>
+        etc.
+    */
+    .tarjeta {
+      width: min(420px, 100%);
+      background: #fff;
+      border-radius: var(--r);
+      box-shadow: 0 8px 32px rgba(0,0,0,.12);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Franja superior de color (verde = ecológico, dorado = intercambio) */
+    .tarjeta-franja {
+      background: var(--verde);         /* XSLT: cambiar a --dorado si categoria=Intercambio */
+      height: 8px;
+    }
+    .tarjeta-franja.intercambio { background: var(--dorado); }
+
+    /* Cabecera */
+    .tarjeta-head {
+      padding: 1.4rem 1.4rem .6rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: .8rem;
+    }
+    .tarjeta-head h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      line-height: 1.25;
+      color: var(--gris);
+    }
+    .badge {
+      white-space: nowrap;
+      background: var(--verde-cl);
+      color: var(--verde);
+      border-radius: 2rem;
+      padding: .25rem .8rem;
+      font-size: .7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      flex-shrink: 0;
+    }
+    .badge.int { background: #fff3cd; color: #856404; }
+
+    /* Descripción */
+    .tarjeta-body {
+      padding: .4rem 1.4rem 1rem;
+      flex: 1;
+    }
+    .tarjeta-body .desc {
+      font-size: .92rem;
+      color: #666;
+      line-height: 1.6;
+    }
+    .meta {
+      margin-top: .9rem;
+      display: flex;
+      flex-direction: column;
+      gap: .2rem;
+      font-size: .8rem;
+      color: #999;
+    }
+    .meta span { display: flex; align-items: center; gap: .35rem; }
+
+    /* Pie: precio + QR */
+    .tarjeta-foot {
+      border-top: 1px solid #eee;
+      padding: 1.2rem 1.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .precio {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--verde);
+      font-family: 'Playfair Display', serif;
+    }
+    .precio.gratis {
+      color: var(--dorado);
+      font-size: 1.1rem;
+    }
+
+    /* ─── QR ─────────────────────────────────────────
+       El XSLT generará esta <img> automáticamente con:
+       src="https://api.qrserver.com/v1/create-qr-code/
+             ?data={base-url}{id}&size=200x200&format=svg"
+    ─────────────────────────────────────────────────── */
+    .qr-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .4rem;
+    }
+    .qr-box img {
+      width: 100px;
+      height: 100px;
+      border: 1.5px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 4px;
+      background: #fff;
+    }
+    .qr-label {
+      font-size: .68rem;
+      font-family: monospace;
+      color: #bbb;
+      letter-spacing: .05em;
+    }
+
+    /* ─── NOTA PARA EL EQUIPO ───────────────────────── */
+    .nota-equipo {
+      margin-top: 2rem;
+      max-width: 420px;
+      background: #fffbe6;
+      border: 1.5px dashed var(--dorado);
+      border-radius: var(--r);
+      padding: 1rem 1.2rem;
+      font-size: .82rem;
+      color: #7a5c1e;
+      line-height: 1.6;
+    }
+    .nota-equipo strong { display: block; margin-bottom: .4rem; font-size: .88rem; }
+    .nota-equipo code {
+      background: rgba(0,0,0,.06);
+      border-radius: 4px;
+      padding: .1rem .3rem;
+      font-size: .78rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!--
+    ════════════════════════════════════════════════
+    PLANTILLA ESTÁTICA: plantilla_tarjeta.html
+    El equipo de Diseño trabaja sobre esta maqueta.
+    El equipo de Lógica (XSLT) sustituirá los datos
+    estáticos por expresiones XPath.
+    ════════════════════════════════════════════════
+  -->
+
+  <article class="tarjeta">
+    <!-- Franja superior: clase "intercambio" si es intercambio -->
+    <div class="tarjeta-franja"></div>
+
+    <div class="tarjeta-head">
+      <!--
+        XSLT: <xsl:value-of select="nombre"/>
+      -->
+      <h1>Caja de Limones Ecológicos</h1>
+
+      <!--
+        XSLT: badge clase depende de categoria
+              texto = <xsl:value-of select="subcategoria"/>
+      -->
+      <span class="badge">Fruta</span>
+    </div>
+
+    <div class="tarjeta-body">
+      <!--
+        XSLT: <xsl:value-of select="descripcion"/>
+      -->
+      <p class="desc">
+        Caja de limones de cultivo ecológico, naturalmente murcianos. Aprox. 3 kg.
+        Procedentes de huertos locales con certificación ecológica.
+      </p>
+
+      <div class="meta">
+        <!--
+          XSLT: <xsl:value-of select="propietario"/>
+                <xsl:value-of select="estado"/>
+                <xsl:value-of select="id"/>
+        -->
+        <span>👤 BioLemon – Naturalmente Murciano</span>
+        <span>📦 Estado: Nuevo</span>
+        <span>🔖 Referencia: <strong>BL-001</strong></span>
+      </div>
+    </div>
+
+    <div class="tarjeta-foot">
+      <!--
+        XSLT: si precio=0 mostrar "🔄 Intercambio"
+              si precio>0 mostrar precio + moneda
+        <xsl:choose>
+          <xsl:when test="precio = 0">
+            <span class="precio gratis">🔄 Intercambio</span>
+          </xsl:when>
+          <xsl:otherwise>
+            <span class="precio">
+              <xsl:value-of select="precio"/>&#160;<xsl:value-of select="moneda"/>
+            </span>
+          </xsl:otherwise>
+        </xsl:choose>
+      -->
+      <span class="precio">3,50 EUR</span>
+
+      <!--
+        XSLT genera esta imagen automáticamente.
+        URL = api.qrserver.com + base-url + id + &format=svg
+        Ejemplo para BL-001:
+        https://api.qrserver.com/v1/create-qr-code/
+          ?data=http://mercadillo.aljada.local/item/BL-001
+          &size=200x200&format=svg&ecc=M
+      -->
+      <div class="qr-box">
+        <img
+          src="https://api.qrserver.com/v1/create-qr-code/?data=http://mercadillo.aljada.local/item/BL-001&amp;size=200x200&amp;format=svg&amp;ecc=M"
+          alt="QR BL-001"
+        />
+        <span class="qr-label">BL-001</span>
+      </div>
+    </div>
+  </article>
+
+  <!-- NOTA PARA EL EQUIPO DE INTEGRACIÓN 
+  <div class="nota-equipo">
+    <strong>📝 Nota para el equipo de Lógica (XSLT)</strong>
+    Esta plantilla estática es vuestra base de trabajo. Tenéis que:
+    <ol style="margin:.5rem 0 .5rem 1.2rem; line-height:1.8;">
+      <li>Copiar la estructura HTML de <code>.tarjeta</code> al archivo <code>transformacion.xsl</code>.</li>
+      <li>Sustituir los textos estáticos por expresiones <code>&lt;xsl:value-of&gt;</code>.</li>
+      <li>Aplicar la lógica condicional <code>&lt;xsl:choose&gt;</code> para precio vs intercambio.</li>
+      <li>Construir la URL del QR concatenando <code>$base-url</code> + <code>&lt;xsl:value-of select="id"/&gt;</code>.</li>
+    </ol>
+    El QR en SVG se pide a <code>api.qrserver.com</code> con <code>&amp;format=svg</code>.
+    ¡Sin instalar nada!-->
+  </div>
+
+</body>
+</html>

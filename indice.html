@@ -1,0 +1,616 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mercadillo Sostenible · Instituto Aljada · 26 de Marzo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;600&display=swap"/>
+  <style>
+    /* ══════════════════════════════════════════════
+       VARIABLES Y RESET
+    ══════════════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --verde:      #2d6a4f;
+      --verde-m:    #40916c;
+      --verde-cl:   #d8f3dc;
+      --dorado:     #c8963e;
+      --dorado-cl:  #fff3cd;
+      --crema:      #fefae0;
+      --tierra:     #7c5c3e;
+      --gris:       #3d3d3d;
+      --blanco:     #ffffff;
+      --r:          14px;
+      --sombra:     0 6px 24px rgba(0,0,0,.12);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--crema);
+      color: var(--gris);
+      overflow-x: hidden;
+    }
+
+    /* ══════════════════════════════════════════════
+       HERO
+    ══════════════════════════════════════════════ */
+    .hero {
+      min-height: 100svh;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(45,106,79,.18) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(200,150,62,.14) 0%, transparent 55%),
+        var(--crema);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 3rem 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Hoja decorativa grande de fondo */
+    .hero::before {
+      content: "🌿";
+      position: absolute;
+      font-size: 28vw;
+      opacity: .04;
+      top: -4vw;
+      left: -6vw;
+      pointer-events: none;
+      user-select: none;
+    }
+    .hero::after {
+      content: "🍋";
+      position: absolute;
+      font-size: 22vw;
+      opacity: .05;
+      bottom: 0;
+      right: -4vw;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .pill {
+      display: inline-block;
+      background: var(--verde-cl);
+      color: var(--verde);
+      border-radius: 2rem;
+      padding: .35rem 1.1rem;
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+      animation: fadeDown .6s ease both;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.6rem, 8vw, 5.5rem);
+      line-height: 1.08;
+      color: var(--verde);
+      animation: fadeDown .7s .1s ease both;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--dorado);
+    }
+
+    .hero-sub {
+      margin-top: 1.2rem;
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      color: var(--tierra);
+      max-width: 580px;
+      line-height: 1.6;
+      animation: fadeDown .7s .2s ease both;
+    }
+
+    .hero-fecha {
+      margin-top: 1.8rem;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeDown .7s .3s ease both;
+    }
+    .chip {
+      background: var(--blanco);
+      border: 1.5px solid var(--verde-m);
+      border-radius: 2rem;
+      padding: .5rem 1.2rem;
+      font-size: .9rem;
+      font-weight: 600;
+      color: var(--verde);
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+      box-shadow: var(--sombra);
+    }
+
+    .btn-cta {
+      margin-top: 2.2rem;
+      display: inline-block;
+      padding: .85rem 2.4rem;
+      background: var(--verde);
+      color: var(--blanco);
+      border-radius: 2rem;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      letter-spacing: .04em;
+      box-shadow: 0 4px 20px rgba(45,106,79,.4);
+      transition: background .2s, transform .15s;
+      animation: fadeDown .7s .4s ease both;
+    }
+    .btn-cta:hover {
+      background: #1b4332;
+      transform: translateY(-2px);
+    }
+
+    /* ══════════════════════════════════════════════
+       SECCIÓN: QUÉ ES
+    ══════════════════════════════════════════════ */
+    .section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem;
+    }
+
+    .section-label {
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--dorado);
+      margin-bottom: .6rem;
+    }
+    .section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      color: var(--verde);
+      line-height: 1.2;
+      margin-bottom: 1.2rem;
+    }
+    .section p {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      max-width: 680px;
+      color: #555;
+    }
+
+    /* Tarjetas de características */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      gap: 1.2rem;
+      margin-top: 2.5rem;
+    }
+    .feat {
+      background: var(--blanco);
+      border-radius: var(--r);
+      padding: 1.5rem;
+      box-shadow: var(--sombra);
+      border-left: 4px solid var(--verde-m);
+      transition: transform .2s;
+    }
+    .feat:hover { transform: translateY(-3px); }
+    .feat-icon { font-size: 2rem; margin-bottom: .6rem; }
+    .feat h3 { font-size: 1rem; color: var(--verde); margin-bottom: .4rem; }
+    .feat p  { font-size: .88rem; color: #666; line-height: 1.55; }
+
+    /* ══════════════════════════════════════════════
+       SECCIÓN: NORMAS DEL MERCADILLO
+    ══════════════════════════════════════════════ */
+    .normas-bg {
+      background:
+        linear-gradient(135deg, var(--verde) 0%, #1b4332 100%);
+      color: var(--blanco);
+      padding: 4rem 1.5rem;
+    }
+    .normas-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .normas-bg .section-label { color: var(--dorado-cl); }
+    .normas-bg h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 4vw, 2.5rem);
+      margin-bottom: 2rem;
+      color: var(--blanco);
+    }
+
+    .normas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+    .norma {
+      background: rgba(255,255,255,.09);
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: var(--r);
+      padding: 1.2rem;
+      display: flex;
+      gap: .9rem;
+      align-items: flex-start;
+      backdrop-filter: blur(6px);
+    }
+    .norma-num {
+      background: var(--dorado);
+      color: var(--blanco);
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      font-size: .85rem;
+      flex-shrink: 0;
+    }
+    .norma p {
+      font-size: .9rem;
+      line-height: 1.55;
+      opacity: .92;
+      max-width: none;
+    }
+
+    /* ══════════════════════════════════════════════
+       SECCIÓN: PRODUCTOS
+    ══════════════════════════════════════════════ */
+    .productos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .prod {
+      background: var(--blanco);
+      border-radius: var(--r);
+      padding: 1.2rem 1rem;
+      text-align: center;
+      box-shadow: var(--sombra);
+      border-top: 4px solid var(--dorado);
+      transition: transform .2s;
+    }
+    .prod:hover { transform: translateY(-3px); }
+    .prod-icon { font-size: 2.4rem; margin-bottom: .5rem; }
+    .prod h3 { font-size: .95rem; color: var(--verde); margin-bottom: .25rem; }
+    .prod p { font-size: .8rem; color: #888; }
+
+    /* ══════════════════════════════════════════════
+       SECCIÓN: ORGANIZADO POR
+    ══════════════════════════════════════════════ */
+    .organiza {
+      background: var(--dorado-cl);
+      border-top: 3px solid var(--dorado);
+      border-bottom: 3px solid var(--dorado);
+      padding: 3rem 1.5rem;
+      text-align: center;
+    }
+    .organiza h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--tierra);
+      margin-bottom: 1rem;
+    }
+    .ciclos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: .7rem;
+      margin-top: 1rem;
+    }
+    .ciclo {
+      background: var(--blanco);
+      border: 1.5px solid var(--dorado);
+      border-radius: 2rem;
+      padding: .45rem 1.1rem;
+      font-size: .88rem;
+      font-weight: 600;
+      color: var(--tierra);
+    }
+
+    /* ══════════════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════════════ */
+    footer {
+      background: #1b2b1e;
+      color: rgba(255,255,255,.55);
+      text-align: center;
+      padding: 2rem 1.5rem;
+      font-size: .82rem;
+    }
+    footer strong { color: rgba(255,255,255,.8); }
+
+    /* ══════════════════════════════════════════════
+       NAV FIJA
+    ══════════════════════════════════════════════ */
+    .topnav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(254,250,224,.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(45,106,79,.15);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: .7rem 1.5rem;
+      font-size: .85rem;
+    }
+    .topnav .logo {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      color: var(--verde);
+      font-size: 1rem;
+    }
+    .topnav-links {
+      display: flex;
+      gap: 1.2rem;
+    }
+    .topnav-links a {
+      color: var(--gris);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color .15s;
+    }
+    .topnav-links a:hover { color: var(--verde); }
+
+    @media (max-width: 480px) {
+      .topnav-links { display: none; }
+    }
+
+    /* ══════════════════════════════════════════════
+       ANIMACIONES
+    ══════════════════════════════════════════════ */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Efecto scroll-reveal via Intersection Observer (JS) */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Link al catálogo flotante */
+    .fab {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      background: var(--verde);
+      color: #fff;
+      border-radius: 2rem;
+      padding: .7rem 1.3rem;
+      font-size: .9rem;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(0,0,0,.25);
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+      z-index: 200;
+      transition: background .2s, transform .15s;
+    }
+    .fab:hover { background: #1b4332; transform: scale(1.04); }
+  </style>
+</head>
+<body>
+
+  <!-- NAV FIJA -->
+  <nav class="topnav" aria-label="Navegación principal">
+    <span class="logo">🌿 Mercadillo Sostenible</span>
+    <div class="topnav-links">
+      <a href="#que-es">¿Qué es?</a>
+      <a href="#normas">Normas</a>
+      <a href="#productos">Productos</a>
+      <a href="#organiza">Organiza</a>
+      <a href="catalogo.html">📋 Catálogo</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="hero-titulo">
+    <span class="pill">📅 26 de Marzo de 2026</span>
+    <h1 id="hero-titulo">Mercadillo<br/><em>Sostenible</em></h1>
+    <p class="hero-sub">
+      Una experiencia única donde la tradición murciana se une con un futuro más sostenible.
+      Compra, intercambia y actúa por el planeta.
+    </p>
+    <div class="hero-fecha">
+      <span class="chip">📍 Instituto Aljada</span>
+      <span class="chip">🕐 Toda la jornada</span>
+      <span class="chip">♻️ Entrada libre</span>
+    </div>
+    <a href="#que-es" class="btn-cta">Descúbrelo →</a>
+  </section>
+
+  <!-- ¿QUÉ ES? -->
+  <section class="section reveal" id="que-es" aria-labelledby="h-quees">
+    <p class="section-label">Sobre el evento</p>
+    <h2 id="h-quees">¿Qué es el Mercadillo Sostenible?</h2>
+    <p>
+      Te invitamos a ser parte de una experiencia única: un espacio donde la sostenibilidad
+      se encuentra con la comunidad local. Organizado por el alumnado del Instituto Aljada,
+      combina productos ecológicos murcianos con puestos de intercambio de ropa, libros y objetos.
+    </p>
+
+    <div class="features">
+      <div class="feat">
+        <div class="feat-icon"></div>
+        <h3>Productos ecológicos</h3>
+        <p>Limones, miel, almendras, pimentón y mermeladas de productores murcianos locales.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-icon">🔄</div>
+        <h3>Intercambio</h3>
+        <p>Trae objetos que ya no necesites y cámbialos por otros que te interesen. ¡Reduce residuos!</p>
+      </div>
+      <div class="feat">
+        <div class="feat-icon">📉</div>
+        <h3>Huella de carbono</h3>
+        <p>Al comprar local y reutilizar, contribuyes a reducir emisiones y fortalecer la economía local.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-icon">🏷️</div>
+        <h3>Catálogo digital</h3>
+        <p>Cada objeto tiene su código QR. Escanéalo para ver la ficha completa desde tu móvil.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- NORMAS -->
+  <section class="normas-bg reveal" id="normas" aria-labelledby="h-normas">
+    <div class="normas-inner">
+      <p class="section-label">Participa de forma responsable</p>
+      <h2 id="h-normas">Normas del Mercadillo</h2>
+      <div class="normas-grid">
+        <div class="norma">
+          <span class="norma-num">1</span>
+          <p>Trae tus propias bolsas y envases reutilizables para llevar tus compras.</p>
+        </div>
+        <div class="norma">
+          <span class="norma-num">2</span>
+          <p>Compra solo lo necesario. El consumo responsable es parte de la sostenibilidad.</p>
+        </div>
+        <div class="norma">
+          <span class="norma-num">3</span>
+          <p>Trae ropa o libros en buen estado para intercambiar en los puestos habilitados.</p>
+        </div>
+        <div class="norma">
+          <span class="norma-num">4</span>
+          <p>Los objetos de intercambio deben estar limpios y en condiciones de uso.</p>
+        </div>
+        <div class="norma">
+          <span class="norma-num">5</span>
+          <p>Respeta el precio marcado por los productores locales. ¡Su trabajo lo vale!</p>
+        </div>
+        <div class="norma">
+          <span class="norma-num">6</span>
+          <p>Escanea el QR de cada producto para acceder a su ficha completa con información detallada.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTOS -->
+  <section class="section reveal" id="productos" aria-labelledby="h-productos">
+    <p class="section-label">BioLemon · Naturalmente Murciano</p>
+    <h2 id="h-productos">Lo que encontrarás</h2>
+    <p>Productos ecológicos de proximidad junto a puestos de intercambio gestionados por el alumnado.</p>
+
+    <div class="productos-grid">
+      <div class="prod">
+        <div class="prod-icon">🍋</div>
+        <h3>Limones</h3>
+        <p>Caja 3 kg · desde 3 €</p>
+      </div>
+      <div class="prod">
+        <div class="prod-icon">🌿</div>
+        <h3>Plantas Aromáticas</h3>
+        <p>Romero, tomillo, lavanda · 1,5–2,5 €</p>
+      </div>
+      <div class="prod">
+        <div class="prod-icon">🌰</div>
+        <h3>Almendras</h3>
+        <p>Bolsa 500 g · 2,50 €</p>
+      </div>
+      <div class="prod">
+        <div class="prod-icon">🫙</div>
+        <h3>Pimentón</h3>
+        <p>Lata 75 g · 3,50 €</p>
+      </div>
+      <div class="prod">
+        <div class="prod-icon">🍯</div>
+        <h3>Miel de Azahar</h3>
+        <p>Tarro 500 g · 8 €</p>
+      </div>
+      <div class="prod">
+        <div class="prod-icon">🫐</div>
+        <h3>Mermelada</h3>
+        <p>Tarro 250 g · 3 €</p>
+      </div>
+      <div class="prod">
+        <div class="prod-icon">📚</div>
+        <h3>Libros</h3>
+        <p>Intercambio gratuito</p>
+      </div>
+      <div class="prod">
+        <div class="prod-icon">👕</div>
+        <h3>Ropa</h3>
+        <p>Intercambio gratuito</p>
+      </div>
+      <div class="prod">
+        <div class="prod-icon">🎲</div>
+        <h3>Juegos y Más</h3>
+        <p>Intercambio gratuito</p>
+      </div>
+    </div>
+
+    <p style="margin-top:1.8rem;">
+      <a href="plantilla_tarjeta.html" style="color:var(--verde);font-weight:600;font-size:1rem;">
+        📋 Ver catálogo completo con QR →
+      </a>
+    </p>
+  </section>
+
+  <!-- ORGANIZA -->
+  <div class="organiza reveal" id="organiza">
+    <h2>Organizado por</h2>
+    <p style="color:var(--tierra);font-size:.95rem;max-width:500px;margin:0 auto;">
+      Este mercadillo es un proyecto educativo real, desarrollado íntegramente por el
+      alumnado del Instituto Aljada en los ciclos formativos:
+    </p>
+    <div class="ciclos">
+      <span class="ciclo">💻 Desarrollo de Aplicaciones Multiplataforma (DAM)</span>
+      <span class="ciclo">🌐 Administración de Sistemas Informáticos en Red (ASIR)</span>
+      <span class="ciclo">🛠️ Sistemas Microinformáticos y Redes (SMR)</span>
+      <span class="ciclo">📊 Administración y Finanzas</span>
+      <span class="ciclo">🎓 Aula Abierta · Programa Formativo Profesional</span>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>🌿 <strong>Mercadillo Sostenible</strong> · Instituto Aljada · 26 de marzo de 2026</p>
+    <p style="margin-top:.4rem;">
+      Web generada con <strong>HTML/CSS + XSLT</strong> · Catálogo desde <strong>inventario.xml</strong>
+      · QR en SVG vía <em>api.qrserver.com</em>
+    </p>
+  </footer>
+
+  <!-- BOTÓN FLOTANTE AL CATÁLOGO -->
+  <a href="catalogo.html" class="fab" aria-label="Ver catálogo">📋 Ver catálogo</a>
+
+  <!-- SCROLL REVEAL -->
+  <script>
+    const observer = new IntersectionObserver(
+      entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+      { threshold: 0.12 }
+    );
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+</body>
+</html>
